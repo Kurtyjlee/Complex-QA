@@ -1,5 +1,5 @@
 # Complex Question Answering with Large Language models
-This project aims to investigate biases within large language models by generating questions from articles of different context and evaluating the model's long form responses to the source articles (Ground truth).
+This project aims to investigate biases within large language models by generating questions from articles of different context and evaluating the model's long-form responses to the source articles (Ground truth).
 This README provides instructions on how to use the Question-Answering pipeline and how to replicate results.
 
 ## Experimental Design
@@ -22,10 +22,10 @@ $ pip install -r requirements.txt
 ## Dataset
 The data used and generated from this project can be found under the `./data` directory. This includes data that has been scrapped off the internet, from the S.Rajaratnam School of International Studies (RSIS), Straitstimes (ST) and New York Times (NYT), representing the South East Asian context, Singaporean context and New York Times context respectively. For more information, please refer to `./data`.
 
-Web scraping scripts for RSIS, straitstimes and NYT are also provided under `./web-scrapping` for more data gathering.
+Web scraping scripts for RSIS, Straitstimes and NYT are also provided under `./web-scrapping` for more data gathering.
 
 ## Setting up FastChat Server
-Before executing the QA generation scripts, be sure to run the fastchat api server if you are not using openai's model. To clone the FastChat repo, please refer to: https://github.com/lm-sys/FastChat/tree/main#install
+Before executing the QA generation scripts, be sure to run the FastChat API server if you are not using openai's model. To clone the FastChat repo, please refer to: https://github.com/lm-sys/FastChat/tree/main#install
 
 The FastChat server can be hosted with these commands:
 #### Fastchat directory
@@ -44,13 +44,13 @@ $ python3 -m fastchat.serve.model_worker --model-name [model_name] --model-path 
 ```bash
 $ python3 -m fastchat.serve.openai_api_server --host localhost --port [restful_port_number] --controller-address http://localhost:[controller_port_number]
 ```
-For more information about the FastChat restfulAPI server, please refer to the FastChat repo: https://github.com/lm-sys/FastChat/blob/main/docs/openai_api.md
+For more information about the FastChat restful API server, please refer to the FastChat repo: https://github.com/lm-sys/FastChat/blob/main/docs/openai_api.md
 
-## Question-Answering Pipline
+## Question-Answering Pipeline
 This is the pipeline for Question generation, Answer generation and evaluations using cosine similarity and perplexity. More information on the file structure can be found in `./QA-generation`.
 
 ### QA configs
-Configure the model parameters in the QA configs before beginning. This is an example configuration
+Please configure the model parameters in the QA configs before beginning. This is an example configuration
 ```yaml
 vicuna-13b-v1.3:
   openai_localhost: http://localhost:[restful_port_number]/v1
@@ -76,7 +76,7 @@ $ python3 question-generation.py
 ```
 
 ### Answer Generation
-For answer generation, without context (Close book QA), use this command. Evaluations will be calculated automatically upon answer generation
+Use this command for answer generation without context (Close book QA). Evaluations will be calculated automatically upon answer generation:
 ```bash
 $ python3 close-book-generation.py \
     --context_name rsis \
@@ -104,7 +104,7 @@ Calculating perplexity is a separate process, ensure that `perplexity_filepath.y
 $ python3 perplexity.py --perplexity_config ../configs/perplexity_filepath.yml
 ``` 
 
-As we are using the HuggingFaceAPI for calculating perplexity, cuda's device map can be configured in `./configs/device_map.json`. Be sure to change the code to use the configured device map in `./QA-generation/perplexity.py`.
+As we are using the HuggingFaceAPI for calculating perplexity, cuda's device map can be configured in `./configs/device_map.json`. Change the code to use the configured device map in `./QA-generation/perplexity.py`.
 
 ## Misc
 ### Data cleaning
@@ -121,8 +121,8 @@ Here are the cosine similarity calculations between the generated answers and th
 
 ## Cosine similarity 2021
 ![cosine_similarity_2021](assets/cosine-similarity-2021.png)
-## t-test for cosine similarity
-We also conducted unpaired 2-tailed t-test to verify the differences in mean.
+## T-test for cosine similarity
+We also conducted an unpaired 2-tailed t-test to verify the differences in mean.
 
 ![cosine_similarity_t-test](assets/cosine-similarity-with-t-test.png)
 
