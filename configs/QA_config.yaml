@@ -1,0 +1,33 @@
+vicuna-7b-v1.1: 
+  openai_localhost: http://localhost:8080/v1
+  openai_api_key: EMPTY
+  openai_organization: ""
+
+gpt-3.5-turbo:
+  openai_localhost: https://api.openai.com/v1
+  openai_api_key: [Your_api_key_here]
+  openai_organization: [You_openai_organisation_here]
+
+vicuna-13b-v1.1:
+  openai_localhost: http://localhost:8090/v1
+  openai_api_key: EMPTY
+  openai_organization: ""
+
+vicuna-13b-v1.3:
+  openai_localhost: http://localhost:8090/v1
+  openai_api_key: EMPTY
+  openai_organization: ""
+
+vicuna-7b-v1.3: 
+  openai_localhost: http://localhost:8080/v1
+  openai_api_key: EMPTY
+  openai_organization: ""
+  
+summariser:
+  model_name: vicuna-13b-v1.3
+
+file_config:
+  context_dir: ../data/context
+  generation_dir: ../data/generations
+  logs_dir: ../data/generations/logs
+  definition_path: ../configs/definitions_config.json

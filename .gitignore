@@ -1,0 +1,7 @@
+**/__pycache__
+*.log*
+*/pdf
+*.pdf
+.vscode
+.DS_Store
+.txt

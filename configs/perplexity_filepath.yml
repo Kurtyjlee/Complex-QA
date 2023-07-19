@@ -1,0 +1,12 @@
+filepaths: 
+  ../data/generations/nyt/close_book_answers_nyt_vicuna-13b-v1.3.json
+  ../data/generations/nyt/close_book_answers_2021_batch_nyt_vicuna-13b-v1.3.json
+  ../data/generations/rsis/close_book_answers_rsis_2021_batch_vicuna-13b-v1.3.json
+  ../data/generations/rsis/close_book_answers_rsis_vicuna-13b-v1.3.json
+  ../data/generations/straitstimes/close_book_answers_straitstimes_vicuna-13b-v1.3.json
+store_dir:
+  ../data/generations/perplexity
+device_map:
+  ../configs/device_map.json
+model_name:
+  lmsys/vicuna-13b-v1.3
